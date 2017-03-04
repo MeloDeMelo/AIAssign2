@@ -76,10 +76,10 @@ public class FocusState {
         fourHorizontal(4,6,Teams.Yellow);
         fourHorizontal(4,7,Teams.Red);
 
-        fourVerticle(4,4,Teams.Yellow);
-        fourVerticle(5,4,Teams.Blue);
-        fourVerticle(6,4,Teams.Yellow);
-        fourVerticle(7,4,Teams.Blue);
+        fourVerticle(0,4,Teams.Yellow);
+        fourVerticle(1,4,Teams.Blue);
+        fourVerticle(2,4,Teams.Yellow);
+        fourVerticle(3,4,Teams.Blue);
     }
 
     private void fourVerticle(int x, int y, Teams team){
@@ -111,56 +111,84 @@ public class FocusState {
             return false;
     }
 
-    public void move(){
+    public int move(int x, int y, int distance, int direction, Teams team){
+        if(!getStackAtPosition(x,y).isEmpty()) {
+            if ((withinBounds(x, y)) && (getStackAtPosition(x, y).peek() == team)) {
+                switch (direction) {
+                    case 1: //up
+                        if (withinBounds(x, y - distance)) {
+                            return pushPop(x, y, x, y - distance, distance);
+                        }
+                    case 2: //down
+                        if (withinBounds(x, y + distance)) {
+                            return pushPop(x, y, x, y + distance, distance);
+                        }
+                    case 3: //right
+                        if (withinBounds(x + distance, y)) {
+                            return pushPop(x, y, x + distance, y, distance);
+                        }
+                    case 4: //left
+                        if (withinBounds(x - distance, y)) {
+                            return pushPop(x, y, x - distance, y, distance);
+                        }
+                }
+            }
+        }
+        return -1;
+    }
 
+    private int pushPop(int startX, int startY, int endX, int endY, int distance){
+        Stack<Teams> inbetween = new Stack<>();
+        Stack<Teams> captured = new Stack<>();
+        int capturedNum;
+
+        int size = getStackSize(endX,endY);
+        if(size + distance >= 5){
+            for(int i = 0; i < size; i ++)
+                captured.push(board[endX][endY].pop());
+            for(int i = 0; i < 5-distance; i ++)
+                board[endX][endY].push(captured.pop());
+        }
+
+        capturedNum = captured.size();
+
+        for(int i = 0; i < distance; i ++)
+            inbetween.push(board[startX][startY].pop());
+        for(int i = 0; i < distance; i ++)
+            board[endX][endY].push(inbetween.pop());
+
+        return capturedNum;
     }
 
     //public ArrayList<Assign2.FocusState> getPossibleMoves(){
 
     //}
 
-    //public int checkWin(){
-
-    //}
+    public boolean checkWin(Teams team){
+        for(int k = 0; k < 8; k ++){
+            for (int i = 0; i < 8; i ++){
+                if (withinBounds(i,k))
+                    if (getStackAtPosition(i,k).peek() != team)
+                        return false;
+            }
+        }
+        return true;
+    }
 
     public String toString(){
-        String bored = "";
-        int x = 0, y = 0;
-        for(int i = 0; i < 15; i ++){
-            for (int k = 0; k < 40; k ++){
-                if(i%2 == 0){
-                    if(k%5 == 0){
-                        bored += "|";
-                    }else{
-                        if(k%5 == 2)
-                            if(withinBounds(x,y))
-                                bored += getStackSize(x,y);
-                            else
-                                bored += "X";
-                        if(k%5 == 3) {
-                            if(withinBounds(x,y)) {
-                                if (getStackSize(x, y) == 0)
-                                    bored += " ";
-                                else
-                                    bored += getStackAtPosition(x, y).peek();
-                            }
-                            x ++;
-                        }
-                        else
-                            bored += " ";
-                    }
-                }else{
-                    if(k%5 == 0){
-                        bored += " ";
-                    }
-                    else{
-                        bored += "-";
-                    }
-                }
+        String bored = "    (0) (1) (2) (3) (4) (5) (6) (7)\n";
+        for(int k = 0; k < 8; k ++){
+            for (int i = -1; i < 8; i ++){
+                if(i == -1)
+                    bored +=  "("+ k + ")";
+                else if(!withinBounds(i,k))
+                    bored += "    ";
+                else if(getStackSize(i,k) == 0)
+                    bored += " 0  ";
+                else
+                    bored += " " + getStackSize(i,k) + "" + getStackAtPosition(i,k).peek() + " ";
             }
-            y++;
-            x = 0;
-            bored += "\n";
+            bored +="\n";
         }
         return bored;
     }
