@@ -31,20 +31,24 @@ public class FocusStateTest {
     @Test
     public void move(){
         System.out.println(fs4);
-        int captured = fs4.move(3,3,1, 1,FocusState.Teams.Green);
+        int captured = fs4.move(3,3,1,1, 1,FocusState.Teams.Green);
         System.out.println(fs4);
         assertEquals(0, captured);
-        captured = fs4.move(3,2,2, 3,FocusState.Teams.Green);
+        captured = fs4.move(3,2,2,2, 3,FocusState.Teams.Green);
         System.out.println(fs4);
         assertEquals(0, captured);
-        captured = fs4.move(5,2,3, 4,FocusState.Teams.Green);
+        captured = fs4.move(5,2,3,3, 4,FocusState.Teams.Green);
         System.out.println(fs4);
         assertEquals(0, captured);
-        captured = fs4.move(2,2,4, 2,FocusState.Teams.Green);
+        captured = fs4.move(2,2,4,4, 2,FocusState.Teams.Green);
         System.out.println(fs4);
         assertEquals(0, captured);
-        captured = fs4.move(2,6,5, 1,FocusState.Teams.Green);
+        captured = fs4.move(2,6,5,5, 1,FocusState.Teams.Green);
         System.out.println(fs4);
         assertEquals(1, captured);
+        captured = fs4.move(2,1,5,1, 1,FocusState.Teams.Green);
+        System.out.println(fs4);
+        captured = fs4.move(2,0,3,1, 2,FocusState.Teams.Green);
+        System.out.println(fs4);
     }
 }

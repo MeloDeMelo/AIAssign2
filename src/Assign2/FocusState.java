@@ -1,5 +1,6 @@
 package Assign2;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Stack;
 
@@ -36,7 +37,7 @@ public class FocusState {
     private void init(){
         for(int i = 0; i < 8; i++){
             for(int k = 0; k < 8; k ++){
-                board[i][k] = new Stack<Teams>();
+                board[i][k] = new Stack<>();
             }
         }
     }
@@ -111,25 +112,25 @@ public class FocusState {
             return false;
     }
 
-    public int move(int x, int y, int distance, int direction, Teams team){
-        if(!getStackAtPosition(x,y).isEmpty()) {
+    public int move(int x, int y, int number, int distance, int direction, Teams team){
+        if((!getStackAtPosition(x,y).isEmpty()) && (number <= getStackSize(x,y))) {
             if ((withinBounds(x, y)) && (getStackAtPosition(x, y).peek() == team)) {
                 switch (direction) {
                     case 1: //up
                         if (withinBounds(x, y - distance)) {
-                            return pushPop(x, y, x, y - distance, distance);
+                            return pushPop(x, y, x, y - distance, distance, number);
                         }
                     case 2: //down
                         if (withinBounds(x, y + distance)) {
-                            return pushPop(x, y, x, y + distance, distance);
+                            return pushPop(x, y, x, y + distance, distance, number);
                         }
                     case 3: //right
                         if (withinBounds(x + distance, y)) {
-                            return pushPop(x, y, x + distance, y, distance);
+                            return pushPop(x, y, x + distance, y, distance, number);
                         }
                     case 4: //left
                         if (withinBounds(x - distance, y)) {
-                            return pushPop(x, y, x - distance, y, distance);
+                            return pushPop(x, y, x - distance, y, distance, number);
                         }
                 }
             }
@@ -137,32 +138,53 @@ public class FocusState {
         return -1;
     }
 
-    private int pushPop(int startX, int startY, int endX, int endY, int distance){
+    private int pushPop(int startX, int startY, int endX, int endY, int distance, int number){
         Stack<Teams> inbetween = new Stack<>();
         Stack<Teams> captured = new Stack<>();
         int capturedNum;
 
         int size = getStackSize(endX,endY);
-        if(size + distance >= 5){
+        if(size + number >= 5){
             for(int i = 0; i < size; i ++)
                 captured.push(board[endX][endY].pop());
-            for(int i = 0; i < 5-distance; i ++)
+            for(int i = 0; i < 5-number; i ++)
                 board[endX][endY].push(captured.pop());
         }
 
         capturedNum = captured.size();
 
-        for(int i = 0; i < distance; i ++)
+        for(int i = 0; i < number; i ++)
             inbetween.push(board[startX][startY].pop());
-        for(int i = 0; i < distance; i ++)
+        for(int i = 0; i < number; i ++)
             board[endX][endY].push(inbetween.pop());
 
         return capturedNum;
     }
 
-    //public ArrayList<Assign2.FocusState> getPossibleMoves(){
+    public ArrayList<FocusNode> getPossibleMoves(Teams team){
+        ArrayList<FocusNode> possibleNodes = new ArrayList<>();
+        for(int i = 0; i < 8; i ++){
+            for (int k = 0; k < 8; k ++){
+                if((withinBounds(k, i)) && (!getStackAtPosition(k,i).isEmpty()) && (getStackAtPosition(k,i).peek() == team)){
+                    possibleNodes.addAll(movesAtPosition(k,i,team));
+                }
+            }
+        }
+        return possibleNodes;
+    }
 
-    //}
+    private ArrayList<FocusNode> movesAtPosition(int x, int y, Teams team){
+        ArrayList<FocusNode> possibleNodes = new ArrayList<>();
+        int possibleDistance = getStackSize(x,y);
+        for(int m = 1; m <= 4; m ++) {
+            for (int i = 1; i <= possibleDistance; i++) {
+                for (int k = 1; k <= possibleDistance; k++) {
+                    possibleNodes.add(new FocusNode(x, y, m, i, k, team));
+                }
+            }
+        }
+        return possibleNodes;
+    }
 
     public boolean checkWin(Teams team){
         for(int k = 0; k < 8; k ++){
