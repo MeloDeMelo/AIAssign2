@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="28470450-71f2-42a6-a29a-947ee1c37af9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Assign2/FocusNode.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Assign2/FocusPlayer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Assign2/FocusState.java" afterPath="$PROJECT_DIR$/src/Assign2/FocusState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/FocusStateTest.java" afterPath="$PROJECT_DIR$/src/test/FocusStateTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,10 +22,10 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="FocusState.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="FocusState.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Assign2/FocusState.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="561">
+                <state relative-caret-position="1190">
                   <caret line="177" column="49" lean-forward="true" selection-start-line="177" selection-start-column="49" selection-end-line="177" selection-end-column="49" />
                   <folding>
                     <element signature="imports" expanded="true" />
@@ -38,11 +37,34 @@
           <file leaf-file-name="FocusStateTest.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/test/FocusStateTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="114">
-                  <caret line="33" column="67" lean-forward="true" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="67" />
+                <state relative-caret-position="442">
+                  <caret line="33" column="67" lean-forward="false" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="67" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="FocusPlayer.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Assign2/FocusPlayer.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="476">
+                  <caret line="30" column="12" lean-forward="false" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
+                  <folding>
+                    <element signature="e#974#975#0" expanded="true" />
+                    <element signature="e#1011#1012#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="FocusNode.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/Assign2/FocusNode.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="476">
+                  <caret line="28" column="26" lean-forward="false" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -51,11 +73,11 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="FocusNode.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/Assign2/FocusNode.java">
+          <file leaf-file-name="FocusPlayer.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/Assign2/FocusPlayer.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="476">
-                  <caret line="28" column="26" lean-forward="false" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+                <state relative-caret-position="484">
+                  <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -87,6 +109,7 @@
         <option value="$PROJECT_DIR$/src/test/FocusStateTest.java" />
         <option value="$PROJECT_DIR$/src/Assign2/FocusNode.java" />
         <option value="$PROJECT_DIR$/src/Assign2/FocusState.java" />
+        <option value="$PROJECT_DIR$/src/Assign2/FocusPlayer.java" />
       </list>
     </option>
   </component>
@@ -118,8 +141,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -170,7 +192,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -667,7 +690,8 @@
       <workItem from="1488416813661" duration="128000" />
       <workItem from="1488417000242" duration="9020000" />
       <workItem from="1488582151041" duration="5913000" />
-      <workItem from="1488661057446" duration="7057000" />
+      <workItem from="1488661057446" duration="7094000" />
+      <workItem from="1488851385574" duration="2520000" />
     </task>
     <task id="LOCAL-00001" summary="toString fixed, move started (still need to tell how many of a stack to move)">
       <created>1488587829813</created>
@@ -676,7 +700,14 @@
       <option name="project" value="LOCAL" />
       <updated>1488587829813</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fixed move, added possible moves and focus node">
+      <created>1488669675898</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1488669675898</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -712,7 +743,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22118000" />
+    <option name="totallyTimeSpent" value="24675000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -721,7 +752,6 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -745,6 +775,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -757,7 +788,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="toString fixed, move started (still need to tell how many of a stack to move)" />
-    <option name="LAST_COMMIT_MESSAGE" value="toString fixed, move started (still need to tell how many of a stack to move)" />
+    <MESSAGE value="fixed move, added possible moves and focus node" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed move, added possible moves and focus node" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -770,6 +802,34 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/Assign2/FocusState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2975">
+          <caret line="177" column="49" lean-forward="false" selection-start-line="177" selection-start-column="49" selection-end-line="177" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/FocusStateTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="33" column="67" lean-forward="true" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Assign2/FocusNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Assign2/FocusState.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -819,10 +879,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/FocusStateTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="33" column="67" lean-forward="true" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="67" />
+        <state relative-caret-position="442">
+          <caret line="33" column="67" lean-forward="false" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="67" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Assign2/FocusState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1190">
+          <caret line="177" column="49" lean-forward="true" selection-start-line="177" selection-start-column="49" selection-end-line="177" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Assign2/FocusPlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="30" column="12" lean-forward="false" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
+          <folding>
+            <element signature="e#974#975#0" expanded="true" />
+            <element signature="e#1011#1012#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -832,16 +913,6 @@
         <state relative-caret-position="476">
           <caret line="28" column="26" lean-forward="false" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Assign2/FocusState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="177" column="49" lean-forward="true" selection-start-line="177" selection-start-column="49" selection-end-line="177" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

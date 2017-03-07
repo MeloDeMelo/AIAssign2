@@ -176,9 +176,9 @@ public class FocusState {
     private ArrayList<FocusNode> movesAtPosition(int x, int y, Teams team){
         ArrayList<FocusNode> possibleNodes = new ArrayList<>();
         int possibleDistance = getStackSize(x,y);
-        for(int m = 1; m <= 4; m ++) {
-            for (int i = 1; i <= possibleDistance; i++) {
-                for (int k = 1; k <= possibleDistance; k++) {
+        for(int m = 1; m <= 4; m ++) {//direction
+            for (int i = 1; i <= possibleDistance; i++) {//number
+                for (int k = 1; k <= possibleDistance; k++) {//distance
                     possibleNodes.add(new FocusNode(x, y, m, i, k, team));
                 }
             }
