@@ -97,7 +97,7 @@ public class FocusState {
         }
     }
 
-    private boolean withinBounds(int x, int y){
+    public boolean withinBounds(int x, int y){
         if((y == 0) && ( (x == 0) || (x == 1) || (x == 6) || (x == 7) ))
             return false;
         else if((y == 1) && ( (x == 0) || (x == 7) ))
@@ -118,19 +118,19 @@ public class FocusState {
                 switch (direction) {
                     case 1: //up
                         if (withinBounds(x, y - distance)) {
-                            return pushPop(x, y, x, y - distance, distance, number);
+                            return pushPop(x, y, x, y - distance, number);
                         }
                     case 2: //down
                         if (withinBounds(x, y + distance)) {
-                            return pushPop(x, y, x, y + distance, distance, number);
+                            return pushPop(x, y, x, y + distance, number);
                         }
                     case 3: //right
                         if (withinBounds(x + distance, y)) {
-                            return pushPop(x, y, x + distance, y, distance, number);
+                            return pushPop(x, y, x + distance, y, number);
                         }
                     case 4: //left
                         if (withinBounds(x - distance, y)) {
-                            return pushPop(x, y, x - distance, y, distance, number);
+                            return pushPop(x, y, x - distance, y, number);
                         }
                 }
             }
@@ -138,7 +138,7 @@ public class FocusState {
         return -1;
     }
 
-    private int pushPop(int startX, int startY, int endX, int endY, int distance, int number){
+    private int pushPop(int startX, int startY, int endX, int endY, int number){
         Stack<Teams> inbetween = new Stack<>();
         Stack<Teams> captured = new Stack<>();
         int capturedNum;
@@ -179,7 +179,7 @@ public class FocusState {
         for(int m = 1; m <= 4; m ++) {//direction
             for (int i = 1; i <= possibleDistance; i++) {//number
                 for (int k = 1; k <= possibleDistance; k++) {//distance
-                    possibleNodes.add(new FocusNode(x, y, m, i, k, team));
+                    possibleNodes.add(new FocusNode(x, y, i, k, m, team));
                 }
             }
         }

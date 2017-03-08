@@ -12,7 +12,7 @@ public class FocusNode {
     private FocusState state;
     private int captured;
 
-    public FocusNode(int startX, int startY, int direction, int distance, int number, Teams team){
+    public FocusNode(int startX, int startY, int number, int distance, int direction, Teams team){
         this.startX = startX;
         this.startY = startY;
         this.direction = direction;
@@ -41,5 +41,10 @@ public class FocusNode {
 
     public int getCaptured(){
         return captured;
+    }
+
+    public String toString(){
+        return "X: " + startX + ", Y: " + startY + ", Direction: "
+                + direction + ", distance: " + distance + ", number: " + number;
     }
 }
