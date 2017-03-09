@@ -46,11 +46,10 @@ public class FocusPlayer {
         }
         teamValue++;
         for (int i = 0; i < 3; i++){
-            notTeams[i] = Teams.values()[teamValue];
-            if(teamValue + 1 >= 4)
+            if(teamValue + 1 > 4)
                 teamValue = 0;
-            else
-                teamValue++;
+            notTeams[i] = Teams.values()[teamValue];
+            teamValue++;
         }
     }
 
