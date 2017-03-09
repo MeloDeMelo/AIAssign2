@@ -15,7 +15,6 @@ public class FocusState {
 
     public FocusState(boolean twoPlayer){
         random = new Random();
-        board = new Stack[8][8];
         init();
         this.twoPlayer = twoPlayer;
         if(twoPlayer)
@@ -26,7 +25,7 @@ public class FocusState {
 
     public FocusState(FocusState fs){
         this.twoPlayer = fs.getTwoPlayer();
-
+        init();
         for(int i = 0; i < 8; i ++){
             for (int k = 0; k < 8; k++){
                 this.board[i][k] = fs.getStackAtPosition(i,k);
@@ -35,6 +34,7 @@ public class FocusState {
     }
 
     private void init(){
+        board = new Stack[8][8];
         for(int i = 0; i < 8; i++){
             for(int k = 0; k < 8; k ++){
                 board[i][k] = new Stack<>();
@@ -189,9 +189,10 @@ public class FocusState {
     public boolean checkWin(Teams team){
         for(int k = 0; k < 8; k ++){
             for (int i = 0; i < 8; i ++){
-                if (withinBounds(i,k))
-                    if (getStackAtPosition(i,k).peek() != team)
+                if ((withinBounds(i,k)) && (!getStackAtPosition(i,k).isEmpty())) {
+                    if (getStackAtPosition(i, k).peek() != team)
                         return false;
+                }
             }
         }
         return true;
