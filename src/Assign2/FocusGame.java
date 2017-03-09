@@ -2,7 +2,6 @@ package Assign2;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import Assign2.FocusPlayer.Heuristic.*;
 import Assign2.FocusPlayer.Heuristic;
 
 /**
@@ -55,10 +54,10 @@ public class FocusGame {
                 System.out.println("Which Heuristic would you like the computer to use?");
                 int responseInt;
                 while (!validResponse) {
-                    i = 0;
+                    int k = 0;
                     for (Heuristic p : Heuristic.values()) {
-                        System.out.println("\t" + i + ": " + p);
-                        i ++;
+                        System.out.println("\t" + k + ": " + p);
+                        k ++;
                     }
                     while(!in.hasNextInt()) {
                         in.next();
@@ -80,6 +79,7 @@ public class FocusGame {
 
     public static void main(String[] args){
         ArrayList<FocusPlayer> players = new ArrayList<>();
+        FocusPlayer winningPlayer = null;
         FocusNode currNode, playerMove;
         boolean twoPlayers = true, validResponse, gameWon = false;
         String response;
@@ -107,12 +107,18 @@ public class FocusGame {
                 playerMove = player.play(currNode.getState());
                 playerMove.setParentNode(currNode);
                 player.addCaptured(playerMove.getCaptured());
+                if(playerMove.getCaptured() > 0)
+                    System.out.println("You have captured " + playerMove.getCaptured() + " pieces.");
                 if((playerMove.getState().checkWin(player.getTeam())) || (player.getCapturedPieces() >= 5)) {
                     gameWon = true;
+                    winningPlayer = player;
                     break;
                 }
+                System.out.println();
                 currNode = playerMove;
             }
         }
+
+        System.out.println("Congrats " + winningPlayer.getTeam() + ", you won!");
     }
 }

@@ -42,12 +42,13 @@ public class FocusPlayer {
         }
     }
 
-    private FocusNode computerPlay(FocusState currState){
-        return null;
+    private FocusNode computerPlay(FocusState initialState){
+        FocusNode finalDecision;
+        return finalDecision;
     }
 
     private FocusNode humanPlay(FocusState currState){
-        ArrayList<Integer> input = new ArrayList<>();
+        ArrayList<Integer> input;
         Scanner in = new Scanner(System.in);
         boolean validResponse = false;
         int x = -1, y = -1 , number = 0, direction = 0, distance = 0;

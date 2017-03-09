@@ -5,7 +5,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Assign2/FocusGame.java" afterPath="$PROJECT_DIR$/src/Assign2/FocusGame.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Assign2/FocusPlayer.java" afterPath="$PROJECT_DIR$/src/Assign2/FocusPlayer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Assign2/FocusState.java" afterPath="$PROJECT_DIR$/src/Assign2/FocusState.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,8 +25,8 @@
           <file leaf-file-name="FocusGame.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Assign2/FocusGame.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="607">
-                  <caret line="108" column="61" lean-forward="false" selection-start-line="108" selection-start-column="61" selection-end-line="108" selection-end-column="61" />
+                <state relative-caret-position="794">
+                  <caret line="121" column="81" lean-forward="false" selection-start-line="121" selection-start-column="81" selection-end-line="121" selection-end-column="81" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -72,14 +71,14 @@
           <file leaf-file-name="FocusPlayer.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Assign2/FocusPlayer.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="709">
-                  <caret line="120" column="35" lean-forward="false" selection-start-line="120" selection-start-column="35" selection-end-line="120" selection-end-column="35" />
+                <state relative-caret-position="239">
+                  <caret line="45" column="32" lean-forward="false" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#3851#3852#0" expanded="true" />
-                    <element signature="e#3878#3879#0" expanded="true" />
-                    <element signature="e#3996#3997#0" expanded="true" />
-                    <element signature="e#4038#4039#0" expanded="true" />
+                    <element signature="e#3876#3877#0" expanded="true" />
+                    <element signature="e#3903#3904#0" expanded="true" />
+                    <element signature="e#4021#4022#0" expanded="true" />
+                    <element signature="e#4063#4064#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -749,7 +748,7 @@
       <workItem from="1488985006321" duration="697000" />
       <workItem from="1488987602341" duration="9296000" />
       <workItem from="1489064956832" duration="1417000" />
-      <workItem from="1489074092936" duration="5333000" />
+      <workItem from="1489074092936" duration="6732000" />
     </task>
     <task id="LOCAL-00001" summary="toString fixed, move started (still need to tell how many of a stack to move)">
       <created>1488587829813</created>
@@ -772,7 +771,14 @@
       <option name="project" value="LOCAL" />
       <updated>1488856710380</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Focus functions fully with human players">
+      <created>1489079528324</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1489079528324</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -808,11 +814,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41461000" />
+    <option name="totallyTimeSpent" value="42860000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -821,10 +827,10 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946146" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7666315" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40760297" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -855,7 +861,8 @@
     <MESSAGE value="toString fixed, move started (still need to tell how many of a stack to move)" />
     <MESSAGE value="fixed move, added possible moves and focus node" />
     <MESSAGE value="added focus player, next step is to implement comp play and human play" />
-    <option name="LAST_COMMIT_MESSAGE" value="added focus player, next step is to implement comp play and human play" />
+    <MESSAGE value="Focus functions fully with human players" />
+    <option name="LAST_COMMIT_MESSAGE" value="Focus functions fully with human players" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -916,10 +923,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3851#3852#0" expanded="true" />
-            <element signature="e#3878#3879#0" expanded="true" />
-            <element signature="e#3996#3997#0" expanded="true" />
-            <element signature="e#4038#4039#0" expanded="true" />
+            <element signature="e#3876#3877#0" expanded="true" />
+            <element signature="e#3903#3904#0" expanded="true" />
+            <element signature="e#4021#4022#0" expanded="true" />
+            <element signature="e#4063#4064#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -972,10 +979,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3851#3852#0" expanded="true" />
-            <element signature="e#3878#3879#0" expanded="true" />
-            <element signature="e#3996#3997#0" expanded="true" />
-            <element signature="e#4038#4039#0" expanded="true" />
+            <element signature="e#3876#3877#0" expanded="true" />
+            <element signature="e#3903#3904#0" expanded="true" />
+            <element signature="e#4021#4022#0" expanded="true" />
+            <element signature="e#4063#4064#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1010,10 +1017,10 @@
           <caret line="30" column="12" lean-forward="false" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3851#3852#0" expanded="true" />
-            <element signature="e#3878#3879#0" expanded="true" />
-            <element signature="e#3996#3997#0" expanded="true" />
-            <element signature="e#4038#4039#0" expanded="true" />
+            <element signature="e#3876#3877#0" expanded="true" />
+            <element signature="e#3903#3904#0" expanded="true" />
+            <element signature="e#4021#4022#0" expanded="true" />
+            <element signature="e#4063#4064#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1048,10 +1055,10 @@
           <caret line="30" column="12" lean-forward="false" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3851#3852#0" expanded="true" />
-            <element signature="e#3878#3879#0" expanded="true" />
-            <element signature="e#3996#3997#0" expanded="true" />
-            <element signature="e#4038#4039#0" expanded="true" />
+            <element signature="e#3876#3877#0" expanded="true" />
+            <element signature="e#3903#3904#0" expanded="true" />
+            <element signature="e#4021#4022#0" expanded="true" />
+            <element signature="e#4063#4064#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1161,8 +1168,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Assign2/FocusGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="607">
-          <caret line="108" column="61" lean-forward="false" selection-start-line="108" selection-start-column="61" selection-end-line="108" selection-end-column="61" />
+        <state relative-caret-position="794">
+          <caret line="121" column="81" lean-forward="false" selection-start-line="121" selection-start-column="81" selection-end-line="121" selection-end-column="81" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1171,14 +1178,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Assign2/FocusPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="709">
-          <caret line="120" column="35" lean-forward="false" selection-start-line="120" selection-start-column="35" selection-end-line="120" selection-end-column="35" />
+        <state relative-caret-position="239">
+          <caret line="45" column="32" lean-forward="false" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3851#3852#0" expanded="true" />
-            <element signature="e#3878#3879#0" expanded="true" />
-            <element signature="e#3996#3997#0" expanded="true" />
-            <element signature="e#4038#4039#0" expanded="true" />
+            <element signature="e#3876#3877#0" expanded="true" />
+            <element signature="e#3903#3904#0" expanded="true" />
+            <element signature="e#4021#4022#0" expanded="true" />
+            <element signature="e#4063#4064#0" expanded="true" />
           </folding>
         </state>
       </provider>
