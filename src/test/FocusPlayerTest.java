@@ -12,13 +12,14 @@ import org.junit.Test;
 public class FocusPlayerTest {
 
     FocusState fs;
-    FocusPlayer human;
+    FocusPlayer human, comp;
     FocusNode fn;
 
     @Before
     public void setUp() throws Exception{
         fs = new FocusState(true);
         human = new FocusPlayer(FocusState.Teams.Green);
+        comp = new FocusPlayer(FocusState.Teams.Red, FocusPlayer.Heuristic.First, 1);
         fn = null;
     }
 
@@ -27,6 +28,13 @@ public class FocusPlayerTest {
         System.out.println(fs);
         fn = human.play(fs);
         System.out.println(fn);
+    }
+
+    @Test
+    public void decideNotTeams(){
+        System.out.println(comp.getNotTeams()[0]);
+        System.out.println(comp.getNotTeams()[1]);
+        System.out.println(comp.getNotTeams()[2]);
     }
 
 }

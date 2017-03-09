@@ -179,18 +179,25 @@ public class FocusState {
         for(int m = 1; m <= 4; m ++) {//direction
             for (int i = 1; i <= possibleDistance; i++) {//number
                 for (int k = 1; k <= possibleDistance; k++) {//distance
-                    possibleNodes.add(new FocusNode(x, y, i, k, m, team));
+                    if(((m == 1) && (withinBounds(x,y-k)))
+                            || ((m == 2) && (withinBounds(x,y+k)))
+                            || ((m == 3) && (withinBounds(x+k,y)))
+                            || ((m == 4) && (withinBounds(x-k,y))))
+                        possibleNodes.add(new FocusNode(x, y, i, k, m, team));
                 }
             }
         }
         return possibleNodes;
     }
 
-    public boolean checkWin(Teams team){
+    public boolean checkWin(){
+        Teams team = null;
         for(int k = 0; k < 8; k ++){
             for (int i = 0; i < 8; i ++){
                 if ((withinBounds(i,k)) && (!getStackAtPosition(i,k).isEmpty())) {
-                    if (getStackAtPosition(i, k).peek() != team)
+                    if(team == null)
+                        team = getStackAtPosition(i, k).peek();
+                    else if (getStackAtPosition(i, k).peek() != team)
                         return false;
                 }
             }

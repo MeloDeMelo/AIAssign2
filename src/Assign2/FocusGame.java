@@ -107,9 +107,14 @@ public class FocusGame {
                 playerMove = player.play(currNode.getState());
                 playerMove.setParentNode(currNode);
                 player.addCaptured(playerMove.getCaptured());
-                if(playerMove.getCaptured() > 0)
-                    System.out.println("You have captured " + playerMove.getCaptured() + " pieces.");
-                if((playerMove.getState().checkWin(player.getTeam())) || (player.getCapturedPieces() >= 5)) {
+                if(player.computerPlayer()){
+                    System.out.println("computer " + player.getTeam() + ": has captured " + player.getCapturedPieces() + " piece('s)");
+                    System.out.println("computer " + player.getTeam() + ": has moved (" + playerMove.getStartX() + ", " + playerMove.getStartY() + ") " + playerMove.getDistance());
+                    System.out.println("computer " + player.getTeam() + ": moved " + playerMove.getNumber() + " piece('s) in the direction: " + playerMove.getDirection());
+                }
+                else if(playerMove.getCaptured() > 0)
+                    System.out.println("You have captured " + playerMove.getCaptured() + " piece('s).");
+                if((playerMove.getState().checkWin()) || (player.getCapturedPieces() >= 5)) {
                     gameWon = true;
                     winningPlayer = player;
                     break;

@@ -43,6 +43,26 @@ public class FocusNode {
         return captured;
     }
 
+    public int getStartX(){
+        return startX;
+    }
+
+    public int getStartY(){
+        return startY;
+    }
+
+    public int getDistance(){
+        return distance;
+    }
+
+    public int getDirection(){
+        return direction;
+    }
+
+    public int getNumber(){
+        return number;
+    }
+
     public String toString(){
         return "X: " + startX + ", Y: " + startY + ", Direction: "
                 + direction + ", distance: " + distance + ", number: " + number;

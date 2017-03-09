@@ -1,10 +1,11 @@
 package Assign2;
 
 
-import static Assign2.FocusPlayer.Heuristic.*;
 import Assign2.FocusState.Teams;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Scanner;
 
 /**
@@ -13,6 +14,7 @@ import java.util.Scanner;
 public class FocusPlayer {
     private boolean computer;
     private Teams team;
+    private Teams[] notTeams;
     private int capturedPieces;
     private int lookDepth;
     private Heuristic heuristic;
@@ -23,6 +25,7 @@ public class FocusPlayer {
         this.heuristic = null;
         this.capturedPieces = 0;
         this.team = team;
+        notTeams = null;
     }
 
     public FocusPlayer(Teams team, Heuristic heuristic, int lookDepth){
@@ -31,6 +34,58 @@ public class FocusPlayer {
         this.lookDepth = lookDepth;
         this.heuristic = heuristic;
         this.team = team;
+        decideNotTeams();
+    }
+
+    private void decideNotTeams(){
+        int teamValue = -1;
+        notTeams = new Teams[3];
+        for (int i = 0; i < 4; i ++){
+            if(Teams.values()[i] == team)
+                teamValue = i;
+        }
+        teamValue++;
+        for (int i = 0; i < 3; i++){
+            notTeams[i] = Teams.values()[teamValue];
+            if(teamValue + 1 >= 4)
+                teamValue = 0;
+            else
+                teamValue++;
+        }
+    }
+
+    public Teams[] getNotTeams(){
+        return notTeams;
+    }
+
+    private int calculateHeuristic(FocusNode node){
+        switch(heuristic){
+            case First:
+                return firstHeuristic(node);
+            case Second:
+                return 0;
+            case third:
+                return 0;
+            case fourth:
+                return 0;
+            default:
+                return -1;
+        }
+    }
+
+    private int firstHeuristic(FocusNode node){
+        int stacksControlled = 0;
+        for(int i = 0; i < 8; i ++){
+            for(int k = 0; k < 8; k ++){
+                if(node.getState().withinBounds(k, i)) {
+                    if (!node.getState().getStackAtPosition(k, i).isEmpty()) {
+                        if (node.getState().getStackAtPosition(k, i).peek() == team)
+                            stacksControlled++;
+                    }
+                }
+            }
+        }
+        return stacksControlled;
     }
 
     public FocusNode play(FocusState currState){
@@ -43,8 +98,76 @@ public class FocusPlayer {
     }
 
     private FocusNode computerPlay(FocusState initialState){
-        FocusNode finalDecision;
+        System.out.println("Computer " + team + ": thinking...");
+        FocusNode finalDecision = null;
+        int bestStrength = maxValue(new FocusNode(initialState), Integer.MIN_VALUE, Integer.MAX_VALUE, 1);
+        for(FocusNode node : getPossibleMoves(team, new FocusNode(initialState))){
+            if(calculateHeuristic(node) == bestStrength)
+                finalDecision = node;
+            else if(finalDecision == null)
+                finalDecision = node;
+        }
         return finalDecision;
+    }
+
+    private ArrayList<FocusNode> getPossibleMoves(Teams team, FocusNode parent){
+        ArrayList<FocusNode> moves = parent.getState().getPossibleMoves(team);
+        for(FocusNode node : moves){
+            node.setParentNode(parent);
+        }
+        Collections.shuffle(moves);
+        return moves;
+    }
+
+    private int maxValue(FocusNode state, int alpha, int beta, int currDepth){
+        if((currDepth > lookDepth) || (state.getState().checkWin()))
+            return calculateHeuristic(state);
+        int bestValue = Integer.MIN_VALUE;
+        ArrayList<FocusNode> possibleMoves = getPossibleMoves(team, state);
+        for(FocusNode node : possibleMoves){
+            bestValue = Math.max(bestValue, minValue(node, alpha, beta, currDepth+1));
+            if(bestValue >= beta)
+                return bestValue;
+            alpha = Math.max(alpha, bestValue);
+        }
+        return bestValue;
+    }
+
+    private int minValue(FocusNode state, int alpha, int beta, int currDepth){
+        if((currDepth > lookDepth) || (state.getState().checkWin()))
+            return calculateHeuristic(state);
+        int bestValue = Integer.MAX_VALUE;
+        Teams enemyTeam;
+        boolean nextMax;
+        if(state.getState().getTwoPlayer()) {
+            enemyTeam = (team == Teams.Red) ? Teams.Green : Teams.Red;
+            nextMax = true;
+        }
+        else{
+            if(currDepth % 4 == 2){
+                enemyTeam = notTeams[0];
+                nextMax = false;
+            }
+            else if(currDepth % 4 == 3){
+                enemyTeam = notTeams[1];
+                nextMax = false;
+            }
+            else{
+                enemyTeam = notTeams[2];
+                nextMax = true;
+            }
+        }
+        ArrayList<FocusNode> possibleMoves = getPossibleMoves(enemyTeam, state);
+        for(FocusNode node : possibleMoves){
+            if(nextMax)
+                bestValue = Math.min(bestValue, maxValue(node, alpha, beta, currDepth+1));
+            else
+                bestValue = Math.min(bestValue, minValue(node, alpha, beta, currDepth+1));
+            if(bestValue <= alpha)
+                return bestValue;
+            beta = Math.min(beta, bestValue);
+        }
+        return bestValue;
     }
 
     private FocusNode humanPlay(FocusState currState){
@@ -120,6 +243,10 @@ public class FocusPlayer {
 
     public void addCaptured(int captured){
         capturedPieces += captured;
+    }
+
+    public boolean computerPlayer(){
+        return computer;
     }
 
     public enum Heuristic{
