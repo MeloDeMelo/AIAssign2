@@ -66,7 +66,7 @@ public class FocusPlayer {
             case third:
                 return thirdHeuristic(node);
             case fourth:
-                return 0;
+                return fourthHeuristic(node);
             default:
                 return -1;
         }
@@ -104,6 +104,10 @@ public class FocusPlayer {
             }
         }
         return piecesControlled;
+    }
+
+    private int fourthHeuristic(FocusNode node){
+        return node.getState().getPossibleMoves(team).size();
     }
 
     public FocusNode play(FocusState currState){
@@ -273,7 +277,7 @@ public class FocusPlayer {
         First("Stacks Controlled"),
         Second("Pieces Captured"),
         third("Pieces controlled"),
-        fourth("4");
+        fourth("Number of possible moves");
         String description;
         Heuristic(String description){
             this.description = description;
