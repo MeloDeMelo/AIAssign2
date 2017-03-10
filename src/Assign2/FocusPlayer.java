@@ -62,9 +62,9 @@ public class FocusPlayer {
             case First:
                 return firstHeuristic(node);
             case Second:
-                return 0;
+                return secondHeuristic(node);
             case third:
-                return 0;
+                return thirdHeuristic(node);
             case fourth:
                 return 0;
             default:
@@ -85,6 +85,25 @@ public class FocusPlayer {
             }
         }
         return stacksControlled;
+    }
+
+    private int secondHeuristic(FocusNode node){
+        return node.getCaptured();
+    }
+
+    private int thirdHeuristic(FocusNode node){
+        int piecesControlled = 0;
+        for(int i = 0; i < 8; i ++){
+            for(int k = 0; k < 8; k ++){
+                if(node.getState().withinBounds(k, i)) {
+                    if (!node.getState().getStackAtPosition(k, i).isEmpty()) {
+                        if (node.getState().getStackAtPosition(k, i).peek() == team)
+                            piecesControlled += node.getState().getStackAtPosition(k,i).size();
+                    }
+                }
+            }
+        }
+        return piecesControlled;
     }
 
     public FocusNode play(FocusState currState){
@@ -170,6 +189,8 @@ public class FocusPlayer {
     }
 
     private FocusNode humanPlay(FocusState currState){
+        if(currState.getPossibleMoves(team).isEmpty())
+            return null;
         ArrayList<Integer> input;
         Scanner in = new Scanner(System.in);
         boolean validResponse = false;
@@ -249,9 +270,16 @@ public class FocusPlayer {
     }
 
     public enum Heuristic{
-        First,
-        Second,
-        third,
-        fourth
+        First("Stacks Controlled"),
+        Second("Pieces Captured"),
+        third("Pieces controlled"),
+        fourth("4");
+        String description;
+        Heuristic(String description){
+            this.description = description;
+        }
+        public String toString(){
+            return description;
+        }
     }
 }

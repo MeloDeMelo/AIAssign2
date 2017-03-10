@@ -5,7 +5,6 @@ import Assign2.FocusState.Teams;
  * Created by Max on 3/4/2017.
  */
 public class FocusNode {
-    private FocusNode parent;
     private int startX, startY;
     private int direction, number, distance;
     private Teams team;
@@ -29,8 +28,17 @@ public class FocusNode {
         this.captured = 0;
     }
 
+    public FocusNode(FocusNode node) {
+        this.state = node.getState();
+        this.startX = node.getStartX();
+        this.startY = node.getStartY();
+        this.direction = node.getDirection();
+        this.distance = node.getDistance();
+        this.number = node.getNumber();
+        this.captured = node.getCaptured();
+    }
+
     public void setParentNode(FocusNode parent){
-        this.parent = parent;
         this.state = new FocusState(parent.getState());
         captured = state.move(startX,startY,number,distance,direction,team);
     }

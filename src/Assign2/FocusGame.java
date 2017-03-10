@@ -25,24 +25,13 @@ public class FocusGame {
     }
 
     public ArrayList<FocusPlayer> askAboutPlayer(boolean twoPlayers){
-        int playerNum = (twoPlayers)? 2 : 4, depth = 0;
-        boolean validResponse = false, computer = false;
-        String response;
+        int playerNum = (twoPlayers)? 2 : 4, depth;
+        boolean validResponse, computer;
         ArrayList<FocusPlayer> players = new ArrayList<>();
         Heuristic heuristic = null;
         for(int i = 0; i < playerNum; i ++){
-            validResponse = false;
             System.out.println("Is player " + (i+1) + " a computer?");
-            while (!validResponse) {
-                response = getStringInput();
-                if (response.toLowerCase().equals("yes")) {
-                    computer = true;
-                    validResponse = true;
-                } else if (response.toLowerCase().equals("no")) {
-                    computer = false;
-                    validResponse = true;
-                }
-            }
+            computer = getYesorNo();
             if(computer){
                 System.out.println("How deep would you like this computer to look?");
                 while(!in.hasNextInt()) {
@@ -77,13 +66,32 @@ public class FocusGame {
         return players;
     }
 
+    public boolean getYesorNo(){
+        boolean validResponse = false, answer = false;
+        String response;
+        while (!validResponse) {
+            response = getStringInput();
+            if (response.toLowerCase().equals("yes")) {
+                answer = true;
+                validResponse = true;
+            } else if (response.toLowerCase().equals("no")) {
+                answer = false;
+                validResponse = true;
+            }
+        }
+        return answer;
+    }
+
     public static void main(String[] args){
         ArrayList<FocusPlayer> players = new ArrayList<>();
         FocusPlayer winningPlayer = null;
         FocusNode currNode, playerMove;
-        boolean twoPlayers = true, validResponse, gameWon = false;
+        boolean twoPlayers = true, validResponse, gameWon = false, fivePieceWin;
         String response;
         FocusGame fG = new FocusGame();
+
+        System.out.println("Would you like to play with 5 pieces captured to win?");
+        fivePieceWin = fG.getYesorNo();
 
         System.out.println("How many players would you like to play (2 or 4)?");
         validResponse = false;
@@ -100,11 +108,19 @@ public class FocusGame {
 
         players.addAll(fG.askAboutPlayer(twoPlayers));
         currNode = new FocusNode(new FocusState(twoPlayers));
+        ArrayList<FocusPlayer> playersLost = new ArrayList<>();
 
         while(!gameWon){
             for(FocusPlayer player : players){
+                if(playersLost.contains(player))
+                    continue;
                 System.out.println(currNode.getState());
                 playerMove = player.play(currNode.getState());
+                if(playerMove == null){
+                    System.out.println("This player could no longer play");
+                    playersLost.add(player);
+                    continue;
+                }
                 playerMove.setParentNode(currNode);
                 player.addCaptured(playerMove.getCaptured());
                 if(player.computerPlayer()){
@@ -114,13 +130,13 @@ public class FocusGame {
                 }
                 else if(playerMove.getCaptured() > 0)
                     System.out.println("You have captured " + playerMove.getCaptured() + " piece('s).");
-                if((playerMove.getState().checkWin()) || (player.getCapturedPieces() >= 5)) {
+                if((playerMove.getState().checkWin()) || ((fivePieceWin) && (player.getCapturedPieces() >= 5)) || (playersLost.size() == 3)) {
                     gameWon = true;
                     winningPlayer = player;
                     break;
                 }
                 System.out.println();
-                currNode = playerMove;
+                currNode = new FocusNode(playerMove);
             }
         }
 
